@@ -1,1 +1,1 @@
-# cordova-qingda-pwithe-pda
+# cordova-qingda-hikvision-pda

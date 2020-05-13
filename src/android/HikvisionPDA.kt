@@ -16,7 +16,7 @@ const val PRINT_FONT_16_16: Byte = 0x2;
 const val PRINT_FONT_16_32: Byte = 0x3;
 const val PRINT_FONT_20_40: Byte = 0x4;
 
-class PwithePDAPlugin : CordovaPlugin() {
+class HikvisionPDAPlugin : CordovaPlugin() {
     private var zgDeviceInited = false;
 
     override fun execute(action: String?, args: JSONArray?, callbackContext: CallbackContext?): Boolean {
