@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-qingda-hikvision-pda" version="1.0.0" 
+<plugin id="cordova-qingda-hikvision-pda" version="1.1.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>QingdaHikvisionPDA</name>
@@ -31,22 +31,11 @@
         <framework src="io.reactivex.rxjava2:rxjava:2.1.14" />
         <source-file src="src/android/HikvisionPDA.kt" target-dir="app/src/main/java/qingda/cordova"/>
         <source-file src="src/android/libs/Android_SDK_48D_V0.7.jar" target-dir="libs" />
-        <source-file src="src/android/libs/AraBMApiDev.jar" target-dir="libs" />
-        <source-file src="src/android/libs/AraBMApiFp.jar" target-dir="libs" />
-        <source-file src="src/android/libs/AraBMApiIdcard.jar" target-dir="libs" />
-        <source-file src="src/android/libs/BatteryControll.jar" target-dir="libs" />
-        <source-file src="src/android/libs/armeabi/libAraBione.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libAraBMApiDev.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libAraBMApiFp.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libAraBMApiFpAlgorithm.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libAraBMApiIdcard.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libftrScanAPI.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libhprt_printer_helper_cmd.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libhprt_printer_model.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libprt_serial_port.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libusb-1.0.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libwlt2bmp.so" target-dir="libs/armeabi" />
-        <source-file src="src/android/libs/armeabi/libWSQ_library_android.so" target-dir="libs/armeabi" />
         <source-file src="src/android/libs/armeabi/libxml2.so" target-dir="libs/armeabi" />
     </platform>
 </plugin>
