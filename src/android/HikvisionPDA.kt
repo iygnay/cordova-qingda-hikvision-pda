@@ -77,6 +77,7 @@ class HikvisionPDAPlugin : CordovaPlugin() {
 
                 // 3. 关闭打印机
                 Thread.sleep(300)
+                closePrinterPort()
                 callbackContext.success("print success, $ret");
             } catch (error: Exception) {
                 Log.e("HikvisionPDAPlugin", "printPage error: ${error.message}")
