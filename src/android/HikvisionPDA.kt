@@ -47,7 +47,7 @@ class HikvisionPDAPlugin : CordovaPlugin() {
                 }
 
                 // 1. 打开打印机
-                val ret = openPrinterPort()
+                var ret = openPrinterPort()
                 Log.d("HikvisionPDAPlugin", "openPrinterPort ret: $ret")
                 if (ret == -1) {
                     callbackContext.error("打印机初始化失败, 请确认你的设备型号是否为受支持的海康威视手持终端, 或者检查设备的配件设置是否已正确连接背夹 (${ret})")
@@ -55,7 +55,8 @@ class HikvisionPDAPlugin : CordovaPlugin() {
                 }
 
                 // 2. 预备 (清除缓存)
-                HPRTPrinterHelper.ClearBuffer()
+                ret = HPRTPrinterHelper.ClearBuffer()
+                Log.d("HikvisionPDAPlugin", "openPrinterPort clearBuffer: $ret")
 
                 // 3. 打印内容
                 val data = args.getJSONObject(0)
@@ -78,6 +79,7 @@ class HikvisionPDAPlugin : CordovaPlugin() {
                 // 3. 关闭打印机
                 Thread.sleep(300)
                 closePrinterPort()
+                Log.e("HikvisionPDAPlugin", "printPage ok")
                 callbackContext.success("print success, $ret");
             } catch (error: Exception) {
                 Log.e("HikvisionPDAPlugin", "printPage error: ${error.message}")
@@ -90,8 +92,10 @@ class HikvisionPDAPlugin : CordovaPlugin() {
      * 打印图片
      */
     private fun printImageElement(element: JSONObject) {
+        Log.d("HikvisionPDAPlugin", "printImageElement start")
         val base64 = element.getString("base64")
-        HPRTPrinterHelper.PrintData(createBase64ImageData(base64))
+        val ret = HPRTPrinterHelper.PrintData(createBase64ImageData(base64))
+        Log.d("HikvisionPDAPlugin", "printImageElement ok: $ret")
     }
 
     /**
@@ -99,6 +103,8 @@ class HikvisionPDAPlugin : CordovaPlugin() {
      */
     private fun printTextElement(element: JSONObject) {
         var text = element.getString("text")
+        Log.d("HikvisionPDAPlugin", "printTextElement start: $text")
+
         val fontSize = element.getString("fontSize")
         val indent = element.getInt("indent")
         val align = element.getString("align");
@@ -115,11 +121,12 @@ class HikvisionPDAPlugin : CordovaPlugin() {
             text = prefix + text
         }
 
-        HPRTPrinterHelper.PrintData(createTextData(
+        val ret = HPRTPrinterHelper.PrintData(createTextData(
             text,
             if (fontSize == "large") 32f else 24f,
             if (align == "center") Layout.Alignment.ALIGN_CENTER else Layout.Alignment.ALIGN_LEFT
         ))
+        Log.d("HikvisionPDAPlugin", "printTextElement ok: $ret")
     }
 
     private fun hello(callbackContext: CallbackContext) {
@@ -204,6 +211,7 @@ class HikvisionPDAPlugin : CordovaPlugin() {
             val file = FileWriter("sys/class/ext_dev/function/ext_hub_enable")
             file.write("0")
             file.close()
+            Log.e("HikvisionPDAPlugin", "closePrinterPort ok")
         } catch (error: Exception) {
             Log.e("HikvisionPDAPlugin", "closePrinterPort error: ${error.message}")
             error.printStackTrace()
