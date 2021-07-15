@@ -124,7 +124,7 @@ class HikvisionPDAPlugin : CordovaPlugin() {
         val ret = HPRTPrinterHelper.PrintData(createTextData(
             text,
             if (fontSize == "large") 32f else 24f,
-            if (align == "center") Layout.Alignment.ALIGN_CENTER else Layout.Alignment.ALIGN_LEFT
+            if (align == "center") Layout.Alignment.ALIGN_CENTER else Layout.Alignment.ALIGN_NORMAL
         ))
         Log.d("HikvisionPDAPlugin", "printTextElement ok: $ret")
     }
