@@ -72,9 +72,9 @@ class HikvisionPDAPlugin : CordovaPlugin() {
                 }
 
                 // 4. 结束 (走纸)
-                HPRTPrinterHelper.PrintData(createTextData("　", 48f, Layout.Alignment.ALIGN_LEFT))
+                HPRTPrinterHelper.PrintData(createTextData("　", 48f, Layout.Alignment.ALIGN_NORMAL))
                 HPRTPrinterHelper.PrintData(createTextData("****************", 24f, Layout.Alignment.ALIGN_CENTER))
-                HPRTPrinterHelper.PrintData(createTextData("　", 48f, Layout.Alignment.ALIGN_LEFT))
+                HPRTPrinterHelper.PrintData(createTextData("　", 48f, Layout.Alignment.ALIGN_NORMAL))
 
                 // 3. 关闭打印机
                 Thread.sleep(300)
