@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>QingdaHikvisionPDA</name>
     <platform name="android">
-        <dependency id="cordova-support-kotlin"/>
         <js-module name="QingdaHikvisionPDA" src="www/android/hikvision-pda.js">
             <clobbers target="cordova.plugins.qingda.hikvisionPDA"/>
         </js-module>
